@@ -1,5 +1,6 @@
 package jpabook.jpashop.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Order {
     private Long id;
 //ManyToOne은 기본 fetch가 EAGER이라서 Lazy로 바꿔야함. 안그러면 난리남
     @ManyToOne(fetch = LAZY)
+    @JsonIgnore
     @JoinColumn(name = "member_id")
     private Member member;
 
